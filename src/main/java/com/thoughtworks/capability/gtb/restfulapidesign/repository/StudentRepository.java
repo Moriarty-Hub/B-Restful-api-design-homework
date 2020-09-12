@@ -3,6 +3,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign.repository;
 import com.thoughtworks.capability.gtb.restfulapidesign.entity.Student;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,6 +23,10 @@ public class StudentRepository {
 
     public void deleteStudent(Integer id) {
         studentMap.remove(id);
+    }
+
+    public Collection<Student> findAll() {
+        return studentMap.values();
     }
 
 }

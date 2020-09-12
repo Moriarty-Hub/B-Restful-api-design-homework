@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class IntegrationController {
 
@@ -25,5 +27,10 @@ public class IntegrationController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteStudent(@PathVariable Integer id) {
         studentService.deleteStudent(id);
+    }
+
+    @GetMapping("/students")
+    public ResponseEntity<List<Student>> getStudentList(@RequestParam (required = false) String gender) {
+        return ResponseEntity.ok().body(studentService.getStudentList(gender));
     }
 }
