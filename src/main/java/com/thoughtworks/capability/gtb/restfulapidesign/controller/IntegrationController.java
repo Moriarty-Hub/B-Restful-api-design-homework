@@ -52,4 +52,9 @@ public class IntegrationController {
     public ResponseEntity<List<Team>> regroupAllTeams() {
         return ResponseEntity.ok().body(teamService.regroupTeams());
     }
+
+    @PatchMapping("/teams/{id}/name")
+    public ResponseEntity<Team> renameTeam(@PathVariable Integer id, @RequestBody Team teamName) {
+        return ResponseEntity.ok().body(teamService.renameTeam(id, teamName.getName()));
+    }
 }

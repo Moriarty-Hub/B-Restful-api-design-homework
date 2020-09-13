@@ -32,4 +32,12 @@ public class TeamRepository {
         return NUMBER_OF_GROUP;
     }
 
+    public void updateTeamNameById(Integer id, String teamName) {
+        teamList.get(id - 1).setName(teamName);
+    }
+
+    public Team findTeamById(Integer id) {
+        return teamList.get(id - 1);
+    }
+
 }

@@ -42,4 +42,9 @@ public class TeamService {
 
         return teamRepository.findAll();
     }
+
+    public Team renameTeam(Integer id, String teamName) {
+        teamRepository.updateTeamNameById(id, teamName);
+        return teamRepository.findTeamById(id);
+    }
 }
