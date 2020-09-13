@@ -40,11 +40,15 @@ public class TeamService {
             teamRepository.updateStudentListById(i + 1, listOfStudentList.get(i));
         }
 
-        return teamRepository.findAll();
+        return getTeamList();
     }
 
     public Team renameTeam(Integer id, String teamName) {
         teamRepository.updateTeamNameById(id, teamName);
         return teamRepository.findTeamById(id);
+    }
+
+    public List<Team> getTeamList() {
+        return teamRepository.findAll();
     }
 }

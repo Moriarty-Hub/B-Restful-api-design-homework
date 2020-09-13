@@ -57,4 +57,9 @@ public class IntegrationController {
     public ResponseEntity<Team> renameTeam(@PathVariable Integer id, @RequestBody Team teamName) {
         return ResponseEntity.ok().body(teamService.renameTeam(id, teamName.getName()));
     }
+
+    @GetMapping("/teams")
+    public ResponseEntity<List<Team>> getTeamList() {
+        return ResponseEntity.ok().body(teamService.getTeamList());
+    }
 }

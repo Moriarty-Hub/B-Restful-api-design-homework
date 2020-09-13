@@ -5,6 +5,7 @@ import com.thoughtworks.capability.gtb.restfulapidesign.entity.Team;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Component
@@ -16,7 +17,10 @@ public class TeamRepository {
 
     public TeamRepository() {
         for (int i = 0; i < NUMBER_OF_GROUP; i++) {
-            teamList.add(Team.builder().id(i + 1).name(PREFIX_OF_DEFAULT_TEAM_NAME + (i + 1)).build());
+            teamList.add(Team.builder().id(i + 1)
+                    .name(PREFIX_OF_DEFAULT_TEAM_NAME + (i + 1))
+                    .studentList(new LinkedList<>())
+                    .build());
         }
     }
 
