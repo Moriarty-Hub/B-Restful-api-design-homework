@@ -36,4 +36,8 @@ public class StudentService {
                     .collect(Collectors.toList());
         }
     }
+
+    public Student getStudentById(Integer id) {
+        return studentRepository.findById(id);
+    }
 }

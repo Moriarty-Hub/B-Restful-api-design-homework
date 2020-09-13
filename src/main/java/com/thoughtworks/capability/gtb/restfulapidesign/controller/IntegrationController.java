@@ -33,4 +33,9 @@ public class IntegrationController {
     public ResponseEntity<List<Student>> getStudentList(@RequestParam (required = false) String gender) {
         return ResponseEntity.ok().body(studentService.getStudentList(gender));
     }
+
+    @GetMapping("/students/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable Integer id) {
+        return ResponseEntity.ok().body(studentService.getStudentById(id));
+    }
 }

@@ -29,4 +29,8 @@ public class StudentRepository {
         return studentMap.values();
     }
 
+    public Student findById(Integer id) {
+        return studentMap.get(id);
+    }
+
 }
