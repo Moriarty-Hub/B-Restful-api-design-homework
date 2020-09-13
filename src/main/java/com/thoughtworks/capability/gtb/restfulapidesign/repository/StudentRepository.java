@@ -33,4 +33,8 @@ public class StudentRepository {
         return studentMap.get(id);
     }
 
+    public void updateStudent(Integer id, Student student) {
+        studentMap.replace(id, student);
+    }
+
 }
