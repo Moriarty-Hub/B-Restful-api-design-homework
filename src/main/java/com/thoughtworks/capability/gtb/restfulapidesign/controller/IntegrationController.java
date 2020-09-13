@@ -1,7 +1,9 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.entity.Student;
+import com.thoughtworks.capability.gtb.restfulapidesign.entity.Team;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.StudentService;
+import com.thoughtworks.capability.gtb.restfulapidesign.service.TeamService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +14,11 @@ import java.util.List;
 public class IntegrationController {
 
     private final StudentService studentService;
+    private final TeamService teamService;
 
-    public IntegrationController(StudentService studentService) {
+    public IntegrationController(StudentService studentService, TeamService teamService) {
         this.studentService = studentService;
+        this.teamService = teamService;
     }
 
     @PostMapping("/students")
@@ -42,5 +46,10 @@ public class IntegrationController {
     @PatchMapping("/students/{id}")
     public ResponseEntity<Student> updateStudentById(@PathVariable Integer id, @RequestBody Student student) {
         return ResponseEntity.ok().body(studentService.updateStudentById(id, student));
+    }
+
+    @PutMapping("/teams/regroup")
+    public ResponseEntity<List<Team>> regroupAllTeams() {
+        return ResponseEntity.ok().body(teamService.regroupTeams());
     }
 }
